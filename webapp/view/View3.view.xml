@@ -1,0 +1,92 @@
+<mvc:View
+    controllerName="kpo.com.supplierrecommendation.controller.View2"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:form="sap.ui.layout.form"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+    <Page
+        id="page3"
+        title="Review for RFP Creation"
+    >
+        <content>
+            <form:SimpleForm
+                id="SimpleFormChange"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                title="Demand Details"
+                labelSpanXL="3"
+                labelSpanL="3"
+                labelSpanM="3"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="5"
+                emptySpanL="5"
+                emptySpanM="5"
+                emptySpanS="0"
+                columnsXL="1"
+                columnsL="1"
+                columnsM="1"
+                singleContainerFullSize="false"
+            >
+                <Label text="Description" />
+                <Input
+                    id="description"
+                    editable="false"
+                />
+                <Label text="Material Group" />
+                <Input
+                    id="materialgroup"
+                    editable="false"
+                />
+                <Label text="Material Code" />
+                <Input
+                    id="materialcode"
+                    editable="false"
+                />
+                <Label text="Demand ID" />
+                <Input
+                    id="demandid"
+                    editable="false"
+                />
+                <Label text="Quantity" />
+                <Input
+                    id="quantity"
+                    editable="false"
+                />
+                <Label text="Unit Price" />
+                <Input
+                    id="unitprice"
+                    editable="false"
+                />
+            </form:SimpleForm>
+
+            <Title
+                text="Assigned Supplier"
+                level="H1"
+            />
+
+            <MultiInput
+                placeholder="Add Supplier"
+                showValueHelp="true"
+                valueHelpRequest="onSupplierValueHelp"
+            >
+                <tokens>
+                    <Token text="ACM_19100000" />
+                </tokens>
+            </MultiInput>
+        </content>
+
+        <footer>
+            <OverflowToolbar id="Toolbar">
+                <ToolbarSpacer />
+                <Button
+                    type="Emphasized"
+                    text="Create RFP Event"
+                    press="onCreateRFPEvent"
+                />
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>

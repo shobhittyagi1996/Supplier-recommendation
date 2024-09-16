@@ -1,0 +1,125 @@
+<mvc:View
+    controllerName="kpo.com.supplierrecommendation.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.f"
+    xmlns:fb="sap.ui.comp.filterbar"
+>
+    <f:DynamicPage
+        id="dynamicPage"
+        title="{i18n>title}"
+    >
+      
+        <f:header>
+            <f:DynamicPageHeader id="_IDGenDynamicPageHeader">
+                <fb:FilterBar 
+                    id="filterBar" 
+                    persistencyKey="myPersKey" 
+                    useToolbar="false" 
+                    search=".onSearch" 
+                   >
+                    <fb:filterGroupItems>
+                        <fb:FilterGroupItem 
+                            id="_IDGenFilterGroupItem" 
+                            name="Name" 
+                            label="DemandID" 
+                            groupName="Group1" 
+                            visibleInFilterBar="true">
+                            <fb:control>
+                                <MultiComboBox 
+                                    id="_IDGenMultiComboBox"
+                                    name="Demand ID"
+                                    selectionChange=".onSelectionChange"
+                                    items="{
+                                        path: '/ProductNames',
+                                        templateShareable: true
+                                    }">
+                                    <core:Item 
+                                        id="_IDGenItem" 
+                                        key="{key}" 
+                                        text="{name}" />
+                                </MultiComboBox>
+                            </fb:control>
+                        </fb:FilterGroupItem>
+                    </fb:filterGroupItems>
+                </fb:FilterBar>
+            </f:DynamicPageHeader>
+        </f:header>
+        
+        <f:content>
+        <ScrollContainer id="_IDGenScrollContainer"
+                width="100%"
+                horizontal="true" 
+                vertical="false"  
+            >
+            <Table
+                id="id_Table4"
+                width="100%"
+                mode="MultiSelect"
+                items="{myModel>/}"
+            >
+                <headerToolbar>
+                    <OverflowToolbar id="_IDGenOverflowToolbar">
+                        <Title
+                            id="idTableTitle1"
+                            text="Sourcing Cockpit"
+                        />
+                        <ToolbarSpacer id="_IDGenToolbarSpacer" />
+                        <Button
+                            id="idAddButton"
+                            text="Create RFP"
+                            type="Emphasized"
+                            press="onCreateRFP"
+                        />
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column id="_IDGenCo12" width="10rem">
+                        <Text id="_IDGenTe01" text="DemandID" />
+                    </Column>
+                    <Column id="_IDGenColum11110" width="10rem">
+                        <Text id="_IDGenTx11" text="ItemID" />
+                    </Column>
+                    <Column id="_IDGenColum1" width="10rem">
+                        <Text id="_IDGne11" text="Demand Title" />
+                    </Column>
+                    <Column id="_IDGenCoum1" width="10rem">
+                        <Text id="_IDGn11" text="Item Description" />
+                    </Column>
+                    <Column id="_IDGnColum1" width="10rem">
+                        <Text id="_IDne1" text="Item Category" />
+                    </Column>
+                    <Column id="_IDGenCoum" width="10rem">
+                        <Text id="_IDne11" text="Quantity" />
+                    </Column>
+                    <Column id="_IDGnColu1" width="10rem">
+                        <Text id="_Ine11" text="UOM" />
+                    </Column>
+                    <Column id="_IDGenColum10" width="10rem">
+                        <Text id="_IDGne111" text="Created Date" />
+                    </Column>
+                    <Column id="_IDGenColum112" width="10rem">
+                        <Text id="_ID0ne11" text="Created By" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem id="c3" vAlign="Middle">
+                        <cells>
+                            <Text id="_IDGenText" text="{myModel>demandid}" />
+                            <Text id="_IDGenText1" text="{myModel>itemid}" />
+                            <Text id="_IDGenText2" text="{myModel>demandtitle}" />
+                            <Text id="_IDGenText3" text="{myModel>itemdescription}" />
+                            <Text id="_IDGenText4" text="{myModel>itemcategory}" />
+                            <Text id="_IDGenText5" text="{myModel>quantity}" />
+                            <Text id="_IDGenText6" text="{myModel>uom}" />
+                            <Text id="_IDGenText7" text="{myModel>createddate}" />
+                            <Text id="_IDGenText8" text="{myModel>createdby}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+            </ScrollContainer>
+        </f:content>
+    </f:DynamicPage>
+</mvc:View>
