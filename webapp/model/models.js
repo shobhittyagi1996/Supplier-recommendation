@@ -13,6 +13,10 @@ function (JSONModel, Device) {
             var oModel = new JSONModel(Device);
             oModel.setDefaultBindingMode("OneWay");
             return oModel;
+        },
+        createLocalModel: function () {
+            let oModel = new JSONModel();
+            return oModel;
         }
     };
 

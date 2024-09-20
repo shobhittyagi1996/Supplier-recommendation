@@ -23,7 +23,7 @@
                         <fb:FilterGroupItem 
                             id="_IDGenFilterGroupItem" 
                             name="Name" 
-                            label="DemandID" 
+                            label="Request ID" 
                             groupName="Group1" 
                             visibleInFilterBar="true">
                             <fb:control>
@@ -57,7 +57,12 @@
                 id="id_Table4"
                 width="100%"
                 mode="MultiSelect"
-                items="{myModel>/}"
+                items="{path:'myModel>/', 
+                sorter :{
+                path:'demandid',
+                group:true
+                }
+                }"
             >
                 <headerToolbar>
                     <OverflowToolbar id="_IDGenOverflowToolbar">
@@ -68,7 +73,7 @@
                         <ToolbarSpacer id="_IDGenToolbarSpacer" />
                         <Button
                             id="idAddButton"
-                            text="Create RFP"
+                            text="Get Supplier Recommendation"
                             type="Emphasized"
                             press="onCreateRFP"
                         />
@@ -76,13 +81,13 @@
                 </headerToolbar>
                 <columns>
                     <Column id="_IDGenCo12" width="10rem">
-                        <Text id="_IDGenTe01" text="DemandID" />
+                        <Text id="_IDGenTe01" text="Request ID" />
                     </Column>
                     <Column id="_IDGenColum11110" width="10rem">
                         <Text id="_IDGenTx11" text="ItemID" />
                     </Column>
                     <Column id="_IDGenColum1" width="10rem">
-                        <Text id="_IDGne11" text="Demand Title" />
+                        <Text id="_IDGne11" text="Request Title" />
                     </Column>
                     <Column id="_IDGenCoum1" width="10rem">
                         <Text id="_IDGn11" text="Item Description" />

@@ -4,7 +4,7 @@
     xmlns="sap.m">
     <Page
         id="page"
-        title="Assign Supplier for RFP"
+        title="AI Recommended Suppliers"
     >
         <content>
             <Table
@@ -24,12 +24,12 @@
                       
                        
 
-                        <Button
+                        <!-- <Button
                             id="idAddButton1"
                             text="Review RFP Creation"
                             type="Emphasized"
                             press="onReviewRFP"
-                        />
+                        /> -->
                     </OverflowToolbar>
                 </headerToolbar>
 
@@ -41,36 +41,30 @@
                     <Column id="_IDGenColu2" width="10rem">
                         <Text text="Supplier Name" />
                     </Column>
-                    <Column id="_IDGenColum3" width="10rem">
+                    <!-- <Column id="_IDGenColum3" width="10rem">
                         <Text text="Supplier Count" />
                     </Column>
                     <Column id="_IDGenCoum4" width="10rem">
                         <Text text="ERP Supplier ID" />
-                    </Column>
+                    </Column> -->
                     <Column id="_IDGnColum5" width="10rem">
-                        <Text text="Ai Suggested Matched Percentage " />
+                        <Text text="Ai Confidence Score" />
                     </Column>
-                    <Column id="_IDGenCoum6" width="10rem">
+                    <!-- <Column id="_IDGenCoum6" width="10rem">
                         <Text text="Recommended For " />
                     </Column>
                     <Column id="_IDGnColu7" width="10rem">
                         <Text text="Why You Got This Match factor" />
-                    </Column>
+                    </Column> -->
                    
                 </columns>
 
                 <items>
                     <ColumnListItem vAlign="Middle">
                         <cells>
-                            <!-- <Text text="{myModel>demandid}" />
-                            <Text text="{myModel>itemid}" />
-                            <Text text="{myModel>demandtitle}" />
-                            <Text text="{myModel>itemdescription}" />
-                            <Text text="{myModel>itemcategory}" />
-                            <Text text="{myModel>quantity}" />
-                            <Text text="{myModel>uom}" />
-                            <Text text="{myModel>createddate}" />
-                            <Text text="{myModel>createdby}" /> -->
+                            <Text text="ACM_001" />
+                            <Text text="Demo_Supplier" />
+                              <Text text="63.08" />
                         </cells>
                     </ColumnListItem>
                 </items>
