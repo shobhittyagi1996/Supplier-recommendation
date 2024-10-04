@@ -15,6 +15,12 @@
       "destination": "ui5"
     },
     {
+      "source": "^/odata/(.*)$",
+      "target": "/odata/$1",
+      "destination": "AI_Supplier",
+      "authenticationType": "xsuaa"
+    },
+    {
       "source": "^(.*)$",
       "target": "$1",
       "service": "html5-apps-repo-rt",

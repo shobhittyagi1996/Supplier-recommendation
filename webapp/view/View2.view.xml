@@ -1,74 +1,48 @@
 <mvc:View controllerName="kpo.com.supplierrecommendation.controller.View2"
     xmlns:html="http://www.w3.org/1999/xhtml"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:n="sap.suite.ui.microchart"
     xmlns="sap.m">
     <Page
         id="page"
         title="AI Recommended Suppliers"
     >
         <content>
-            <Table
-                id="id_Table5"
-                width="100%"
-                mode="MultiSelect"
-               
-            >
-                <headerToolbar>
-                    <OverflowToolbar>
-                        <Title
-                            id="idTableTitle2"
-                            text="Recommended Supplier"
-                        />
-                        <ToolbarSpacer />
+           <Table
+    id="id_Table5"
+    width="100%"
+    mode="MultiSelect"
+    items="{aribaModel>/predictions/0/labels/0/results}">
+    <headerToolbar>
+        <OverflowToolbar>
+            <Title id="idTableTitle2" text="Recommended Suppliers" />
+            <ToolbarSpacer />
+        </OverflowToolbar>
+    </headerToolbar>
 
-                      
-                       
+    <columns>
+        <Column width="10rem">
+            <Text text="Supplier ID" />
+        </Column>
+        <Column width="10rem">
+            <Text text="Supplier Name" />
+        </Column>
+        <Column width="10rem">
+            <Text text="AI Confidence Score" />
+        </Column>
+    </columns>
 
-                        <!-- <Button
-                            id="idAddButton1"
-                            text="Review RFP Creation"
-                            type="Emphasized"
-                            press="onReviewRFP"
-                        /> -->
-                    </OverflowToolbar>
-                </headerToolbar>
+    <items>
+        <ColumnListItem>
+            <cells>
+               <Text text="{aribaModel>value}" />
+                <Text text="{oAIModel>SupplierName}" />
+                <n:RadialMicroChart size="M" percentage="{path: 'aribaModel>probability', formatter: '.formatPercentage'}" press="press" class="sapUiSmallMargin"></n:RadialMicroChart>
+            </cells>
+        </ColumnListItem>
+    </items>
+</Table>
 
-                <columns>
-                   
-                    <Column id="_IDGenCo1" width="10rem">
-                        <Text text="ACM_Supplier ID" />
-                    </Column>
-                    <Column id="_IDGenColu2" width="10rem">
-                        <Text text="Supplier Name" />
-                    </Column>
-                    <!-- <Column id="_IDGenColum3" width="10rem">
-                        <Text text="Supplier Count" />
-                    </Column>
-                    <Column id="_IDGenCoum4" width="10rem">
-                        <Text text="ERP Supplier ID" />
-                    </Column> -->
-                    <Column id="_IDGnColum5" width="10rem">
-                        <Text text="Ai Confidence Score" />
-                    </Column>
-                    <!-- <Column id="_IDGenCoum6" width="10rem">
-                        <Text text="Recommended For " />
-                    </Column>
-                    <Column id="_IDGnColu7" width="10rem">
-                        <Text text="Why You Got This Match factor" />
-                    </Column> -->
-                   
-                </columns>
-
-                <items>
-                    <ColumnListItem vAlign="Middle">
-                        <cells>
-                            <Text text="ACM_001" />
-                            <Text text="Demo_Supplier" />
-                              <Text text="63.08" />
-                        </cells>
-                    </ColumnListItem>
-                </items>
-            </Table>
         </content>
     </Page>
 </mvc:View>

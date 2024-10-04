@@ -7,6 +7,7 @@ sap.ui.define(
       "kpo.com.supplierrecommendation.controller.View1",
       {
         onInit: function () {
+          
           // JSON data as described above
           var oData = [
             {
@@ -116,23 +117,34 @@ sap.ui.define(
           // Set the model to the view
           this.getView().setModel(oModel, "myModel");
         },
+
         onCreateRFP: function () {
-          let aContexts =  this.byId("id_Table4").getSelectedContexts();
-          if(aContexts.length>0){
-           let aSelectedTexts = aContexts.map(function(item){
-
-            return item.getObject().itemdescription;
-
-           });
-
-           this.getOwnerComponent().getModel("localModel").setData(aSelectedTexts);
-           this.getOwnerComponent().getRouter().navTo("RouteView2");
-          }else{
-            return;
+          debugger;
+          let aContexts = this.byId("id_Table4").getSelectedContexts();
+          if (aContexts.length > 0) {
+              // Collect all selected item descriptions
+              let aSelectedTexts = aContexts.map(function(item) {
+                  return item.getObject().itemdescription;
+              });
+      
+              // Store the selected descriptions in the local model
+              this.getOwnerComponent().getModel("localModel").setData({
+                  selectedDescriptions: aSelectedTexts
+              });
+      
+              // Navigate to RouteView2 and pass the descriptions as a parameter (array as JSON string)
+              this.getOwnerComponent().getRouter().navTo("RouteView2", {
+                  "itemdescription": JSON.stringify(aSelectedTexts) // Pass as stringified array
+              });
+          } else {
+              return;
           }
-          
-        },
       }
+      
+        
+        
+      }
+      
     );
   }
 );

@@ -15,6 +15,17 @@
       "version": "1.15.0",
       "toolsId": "dcea3601-0ab5-44a8-b876-422d8af3de3e"
     },
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/v4/ai-supplier/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "4.0"
+        }
+      }
+    },
     "crossNavigation": {
       "inbounds": {
         "supplierRecommendation-manage": {
@@ -64,6 +75,11 @@
         "settings": {
           "bundleName": "kpo.com.supplierrecommendation.i18n.i18n"
         }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true
+        
       }
     },
     "resources": {
@@ -93,7 +109,7 @@
         },
         {
           "name": "RouteView2",
-          "pattern": "Assign",
+          "pattern": "Assign/{itemdescription}",
           "target": [
             "TargetView2"
           ]

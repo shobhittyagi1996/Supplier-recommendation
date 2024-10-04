@@ -31,10 +31,7 @@
                                     id="_IDGenMultiComboBox"
                                     name="Demand ID"
                                     selectionChange=".onSelectionChange"
-                                    items="{
-                                        path: '/ProductNames',
-                                        templateShareable: true
-                                    }">
+                                   >
                                     <core:Item 
                                         id="_IDGenItem" 
                                         key="{key}" 
